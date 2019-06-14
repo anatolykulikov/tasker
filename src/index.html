@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Tasker</title>
+<link rel="stylesheet" href="content/app.css">
+<script src="content/app.js"></script>
+<link rel="icon" type="image/png" sizes="512x512" href="content/img/favicon.png">
+</head>
+<body>
+<main class="app" id="app">
+    <aside class="app__sidebar">
+        <h1>Tasker<span>.app</span></h1>
+        <nav class="app__menu">
+            <span class="app__menu_element app__menu-selected">Задачи</span>
+            <span class="app__menu_element">Архив задач</span>
+            <hr class="app__menu_divider">
+            <span class="app__menu_element">Настройки</span>
+        </nav>
+    </aside>
+    <div class="app__body">
+        <section class="app__task_col">
+            <h2>План</h2>
+            <div class="app__task_wrapper" id="plan">
+                <div class="task">
+                    <h3>Название задания</h3>
+                    <p>Краткое описание задания, не очень много, не более 600 символов (но можно и больше, конечно)</p>
+                    <div class="task__controls">
+                        <span class="control-active">Выполнение</span>
+                        <span class="control-delete">Удалить</span>
+                    </div>
+                </div>
+                <div class="task">
+                    <h3>Название задания</h3>
+                    <p>Краткое описание задания, не очень много, не более 600 символов (но можно и больше, конечно)</p>
+                    <div class="task__controls">
+                        <span class="control-active">Выполнение</span>
+                        <span class="control-delete">Удалить</span>
+                    </div>
+                </div>
+                <div class="task">
+                    <h3>Название задания</h3>
+                    <p>Краткое описание задания, не очень много, не более 600 символов (но можно и больше, конечно)</p>
+                    <div class="task__controls">
+                        <span class="control-active">Выполнение</span>
+                        <span class="control-delete">Удалить</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="app__task_col">
+            <h2>В работе</h2>
+            <div class="app__task_wrapper" id="work">
+                <div class="task">
+                    <h3>Название задания</h3>
+                    <p>Краткое описание задания, не очень много, не более 600 символов (но можно и больше, конечно)</p>
+                    <div class="task__controls">
+                        <span class="control-delete">Удалить</span>
+                        <span class="control-archive">В архив</span>
+                    </div>
+                </div>
+                <div class="task">
+                    <h3>Название задания</h3>
+                    <p>Краткое описание задания, не очень много, не более 600 символов (но можно и больше, конечно)</p>
+                    <div class="task__controls">
+                        <span class="control-delete">Удалить</span>
+                        <span class="control-archive">В архив</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="app__task_col">
+            <h2>Выполнены</h2>
+            <div class="app__task_wrapper" id="done">
+                <div class="task">
+                    <h3>Название задания</h3>
+                    <p>Краткое описание задания, не очень много, не более 600 символов (но можно и больше, конечно)</p>
+                    <div class="task__controls">
+                        <span class="control-back">Вернуть</span>
+                        <span class="control-delete">Удалить</span>
+                        <span class="control-archive">В архив</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+</body>
+</html>

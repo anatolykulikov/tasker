@@ -17,6 +17,11 @@ gulp.task('kill', function() {
   return del('app');
 });
 
+gulp.task('img', function() {
+  return gulp.src('src/img/*.*')
+      .pipe(gulp.dest('app/content/img'));
+});
+
 gulp.task('html', function() {
   return gulp.src('src/*.html')
       .pipe(htmlmin({
@@ -28,7 +33,8 @@ gulp.task('html', function() {
 gulp.task('sass', function () {
   return gulp.src('src/sass/app.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    //.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('app/content'));
 });
@@ -48,10 +54,10 @@ gulp.task('js', function() {
 gulp.task('watch', function() {
   gulp.watch('src/js/*.js', gulp.series('js'));
   gulp.watch('src/sass/*.scss', gulp.series('sass'));
-  gulp.watch('src/*.html', gulp.series('sass'));
+  gulp.watch('src/*.html', gulp.series('html'));
 });
 
 // Dev-сборка
-gulp.task('dev', gulp.series('kill', gulp.parallel('html', 'js', 'sass'), 'watch'));
+gulp.task('dev', gulp.series('kill', gulp.parallel('html', 'js', 'sass', 'img'), 'watch'));
 // Production-сборка
 gulp.task('prod', gulp.series('kill', gulp.parallel('html', 'js')));

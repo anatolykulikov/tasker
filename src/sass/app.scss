@@ -1,3 +1,42 @@
-* {
-    box-sizing: border-box;
+@import 'reset';
+
+// Colors
+$color_text: #1D2734;
+$color_text-secondary: #66717F;
+
+$color_active: #5585B5;
+$color_ok: #A1C527;
+$color_warning: #FB8C00;
+$color_error: #F27171;
+$color_archive: #7AC1D0;
+
+$color_sidebar: #F5F5F5;
+$color_shadow: #E0E0E0;
+$color_body: #F4F6F9;
+$white: #fff;
+
+// Sizes
+$width_app: 1200px;
+$width_app-sidebar: 200px;
+$width_app-body: $width_app - $width_app-sidebar;
+
+// Paddings
+$padding-025x: 5px;
+$padding-05x: 10px;
+$padding: 20px;
+$padding-2x: $padding * 2;
+
+//Borders
+$border_std: $color_shadow solid 1px;
+$border_light: $color_sidebar solid 1px;
+
+// Extends
+.flex-start {
+    display: flex;
+    align-content: flex-start;
+    align-items: stretch;
+    justify-content: flex-start;
 }
+
+@import 'body';
+@import 'task';

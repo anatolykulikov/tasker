@@ -1,3 +1,135 @@
-*{box-sizing:border-box}
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 1;
+  font-family: "Segoe UI", "Roboto", "San Francisco", sans-serif;
+  cursor: default; }
+
+.flex-start, .app, .app__body {
+  display: flex;
+  align-content: flex-start;
+  align-items: stretch;
+  justify-content: flex-start; }
+
+body {
+  background: #F4F6F9; }
+
+.app {
+  width: 1200px;
+  margin: 40px auto;
+  box-shadow: #E0E0E0 0 0 14px 0;
+  background: #fff; }
+  .app__sidebar {
+    display: block;
+    width: 200px;
+    padding: 20px;
+    background: #F5F5F5; }
+    .app__sidebar h1 {
+      display: block;
+      width: 100%;
+      margin-bottom: 40px;
+      font-size: 30px;
+      color: #1D2734;
+      pointer-events: none; }
+      .app__sidebar h1 span {
+        color: #5585B5; }
+  .app__menu {
+    display: block;
+    width: 100%; }
+    .app__menu_element {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 20px;
+      line-height: 120%;
+      color: #1D2734;
+      transition: color ease-in-out .2s;
+      cursor: pointer; }
+    .app__menu_element:hover {
+      color: #5585B5; }
+    .app__menu-selected {
+      color: #5585B5; }
+    .app__menu-selected::before {
+      content: '';
+      position: absolute;
+      left: -9px;
+      top: 18px;
+      display: block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #5585B5; }
+    .app__menu_divider {
+      display: block;
+      width: 100%;
+      border-bottom: #E0E0E0 solid 1px;
+      margin: 5px 0; }
+  .app__body {
+    width: 1000px;
+    padding: 27px 0; }
+  .app__task_col {
+    display: block;
+    width: 333.33333px;
+    padding: 0 20px 20px; }
+    .app__task_col h2 {
+      display: block;
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: #1D2734; }
+  .app__task_col:nth-of-type(2) {
+    border-left: #E0E0E0 solid 1px;
+    border-right: #E0E0E0 solid 1px; }
+  .app__task_wrapper {
+    display: block;
+    width: 100%; }
+
+.task {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: #F5F5F5 solid 1px; }
+  .task h3 {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 120%;
+    color: #1D2734; }
+  .task p {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    line-height: 130%;
+    color: #1D2734; }
+  .task__controls {
+    display: block;
+    font-size: 14px;
+    line-height: 130%; }
+    .task__controls span {
+      display: inline-block;
+      margin-right: .3rem;
+      margin-bottom: .3rem;
+      cursor: pointer; }
+    .task__controls span:hover {
+      text-decoration: underline; }
+    .task__controls .control-active {
+      color: #5585B5; }
+    .task__controls .control-back {
+      color: #FB8C00; }
+    .task__controls .control-delete {
+      color: #F27171; }
+    .task__controls .control-archive {
+      color: #7AC1D0; }
+
+.task:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none; }
 
 /*# sourceMappingURL=app.css.map */

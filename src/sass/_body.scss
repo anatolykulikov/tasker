@@ -1,0 +1,102 @@
+// Main
+body {
+    background: $color_body;
+}
+
+.app {
+    @extend .flex-start;
+    width: $width_app;
+    margin: $padding-2x auto;
+    box-shadow: $color_shadow 0 0 14px 0;
+    background: $white;
+
+    &__sidebar {
+        display: block;
+        width: $width_app-sidebar;
+        padding: $padding;
+        background: $color_sidebar;
+
+        h1 {
+            display: block;
+            width: 100%;
+            margin-bottom: $padding-2x;
+            font-size: 30px;
+            color: $color_text;
+            pointer-events: none;
+
+            span {
+                color: $color_active;
+            }
+        }
+    }
+
+    &__menu {
+        display: block;
+        width: 100%;
+
+        &_element {
+            position: relative;
+            display: block;
+            width: 100%;
+            padding: $padding-05x;
+            font-size: 20px;
+            line-height: 120%;
+            color: $color_text;
+            transition: color ease-in-out .2s;
+            cursor: pointer;
+        }
+        &_element:hover {
+            color: $color_active;
+        }
+
+        &-selected {
+            color: $color_active;
+        }
+        &-selected::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 18px;
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: $color_active;
+        }
+
+        &_divider {
+            display: block;
+            width: 100%;
+            border-bottom: $border_std;
+            margin: $padding-025x 0;
+        }
+    }
+
+    &__body {
+        @extend .flex-start;
+        width: $width_app-body;
+        padding: $padding+7 0;
+    }
+
+    &__task_col {
+        display: block;
+        width: $width_app-body / 3;
+        padding: 0 $padding $padding;
+
+        h2 {
+            display: block;
+            margin-bottom: $padding;
+            font-size: 20px;
+            color: $color_text;
+        }
+    }
+    &__task_col:nth-of-type(2){
+        border-left: $border_std;
+        border-right: $border_std;
+    }
+
+    &__task_wrapper {
+        display: block;
+        width: 100%;
+    }
+}

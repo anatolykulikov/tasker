@@ -1,0 +1,57 @@
+.task {
+    display: block;
+    width: 100%;
+    margin-bottom: $padding;
+    padding-bottom: $padding;
+    border-bottom: $border_light;
+
+    h3 {
+        display: block;
+        margin-bottom: $padding-025x;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 120%;
+        color: $color_text;
+    }
+    p {
+        display: block;
+        margin-bottom: $padding-025x;
+        font-size: 14px;
+        line-height: 130%;
+        color: $color_text;
+    }
+
+    &__controls {
+        display: block;
+        font-size: 14px;
+        line-height: 130%;
+
+        span {
+            display: inline-block;
+            margin-right: .3rem;
+            margin-bottom: .3rem;
+            cursor: pointer;
+        }
+        span:hover {
+            text-decoration: underline;
+        }
+
+        .control-active {
+            color: $color_active;
+        }
+        .control-back {
+            color: $color_warning;
+        }
+        .control-delete {
+            color: $color_error;
+        }
+        .control-archive {
+            color: $color_archive;
+        }
+    }
+}
+.task:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}

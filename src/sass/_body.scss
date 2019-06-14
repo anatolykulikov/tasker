@@ -5,7 +5,8 @@ body {
 
 .app {
     @extend .flex-start;
-    width: $width_app;
+    width: 100%;
+    max-width: $width_app;
     margin: $padding-2x auto;
     box-shadow: $color_shadow 0 0 14px 0;
     background: $white;
@@ -33,6 +34,22 @@ body {
     &__menu {
         display: block;
         width: 100%;
+
+        &_addtask {
+            display: block;
+            width: 100%;
+            margin-bottom: $padding-05x;
+            padding: $padding-05x;
+            font-size: 20px;
+            line-height: 120%;
+            color: #fff;
+            background: $color_success;
+            transition: background ease-in-out .2s;
+            cursor: pointer;
+        }
+        &_addtask:hover {
+            background: $color_success-hover;
+        }
 
         &_element {
             position: relative;
@@ -80,7 +97,8 @@ body {
 
     &__task_col {
         display: block;
-        width: $width_app-body / 3;
+        width: 34%;
+        max-width: $width_app-body / 3;
         padding: 0 $padding $padding;
 
         h2 {

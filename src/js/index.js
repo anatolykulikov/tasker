@@ -1,3 +1,5 @@
+var app;
 // Инициализация приложения
-window.onload = function() {
+window.onload = () => {
+    initApp();
 };

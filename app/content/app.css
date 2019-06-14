@@ -15,11 +15,55 @@
   align-items: stretch;
   justify-content: flex-start; }
 
+@keyframes notifyLeave {
+  from {
+    left: 10px; }
+  to {
+    left: -240px; } }
+
+.notify {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 210px;
+  border-radius: 4px;
+  background: #fff; }
+  .notify h4 {
+    display: block;
+    padding: 7px 10px; }
+  .notify p {
+    padding: 10px;
+    font-size: 14px;
+    line-height: 130%; }
+
+.notify-success {
+  color: #1D2734;
+  box-shadow: #C8E6C9 0 0 10px 0; }
+  .notify-success h4 {
+    background: #A5D6A7; }
+
+.notify-error {
+  color: #1D2734;
+  box-shadow: #ffcdd2 0 0 10px 0; }
+  .notify-error h4 {
+    color: #fff;
+    background: #f44336; }
+
+.notify-arrive {
+  animation: notifyLeave 1s ease-in-out;
+  animation-direction: reverse;
+  animation-fill-mode: forwards; }
+
+.notify-leave {
+  animation: notifyLeave 1s ease-in-out;
+  animation-fill-mode: forwards; }
+
 body {
   background: #F4F6F9; }
 
 .app {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 40px auto;
   box-shadow: #E0E0E0 0 0 14px 0;
   background: #fff; }
@@ -40,6 +84,19 @@ body {
   .app__menu {
     display: block;
     width: 100%; }
+    .app__menu_addtask {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 20px;
+      line-height: 120%;
+      color: #fff;
+      background: #43A047;
+      transition: background ease-in-out .2s;
+      cursor: pointer; }
+    .app__menu_addtask:hover {
+      background: #388E3C; }
     .app__menu_element {
       position: relative;
       display: block;
@@ -74,7 +131,8 @@ body {
     padding: 27px 0; }
   .app__task_col {
     display: block;
-    width: 333.33333px;
+    width: 34%;
+    max-width: 333.33333px;
     padding: 0 20px 20px; }
     .app__task_col h2 {
       display: block;
@@ -113,7 +171,7 @@ body {
     line-height: 130%; }
     .task__controls span {
       display: inline-block;
-      margin-right: .3rem;
+      margin-right: .5rem;
       margin-bottom: .3rem;
       cursor: pointer; }
     .task__controls span:hover {

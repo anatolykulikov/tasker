@@ -60,4 +60,4 @@ gulp.task('watch', function() {
 // Dev-сборка
 gulp.task('dev', gulp.series('kill', gulp.parallel('html', 'js', 'sass', 'img'), 'watch'));
 // Production-сборка
-gulp.task('prod', gulp.series('kill', gulp.parallel('html', 'js')));
+gulp.task('prod', gulp.series('kill', gulp.parallel('html', 'sass', 'img', 'js')));

@@ -1,0 +1,74 @@
+.dialog {
+    position: fixed;
+    top: 30px;
+    left: 35%;
+    z-index: 100;
+    display: block;
+    width: 30%;
+    border: $border_std;
+    box-shadow: $color_shadow 0 0 10px;
+    background: $white;
+
+    header {
+        display: block;
+        padding: $padding-05x $padding;
+        font-size: 20px;
+        color: $white;
+        background: $color_active;
+    }
+
+    &__body {
+        display: block;
+        width: 100%;
+        padding: $padding-025x $padding $padding;
+
+        input[type="text"] {
+            display: block;
+            width: 100%;
+            margin-bottom: $padding-05x;
+            border-bottom: $color_active solid 1px;
+            padding: $padding-05x;
+            font-size: 18px;
+        }
+
+        textarea {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            min-width: 100%;
+            min-height: 3rem;
+            border: $border_std;
+            border-bottom: $color_active solid 1px;
+            margin-bottom: $padding;
+            padding: $padding-05x;
+            font-size: 16px;
+            line-height: 130%;
+        }
+
+        button.add {
+            display: inline-block;
+            padding: $padding-05x;
+            font-size: 16px;
+            color: $white;
+            background: $color_success;
+            transition: background ease-in-out .2s;
+            cursor: pointer;
+        }
+        button.add:hover {
+            background: $color_success-hover; 
+        }
+
+        button.delete {
+            display: inline-block;
+            padding: $padding-05x;
+            font-size: 16px;
+            color: $color_text-secondary;
+            background: $white;
+            transition: color ease-in-out .2s;
+            cursor: pointer;
+        }
+        button.delete:hover {
+            color: $color_error;
+        }
+    }
+}

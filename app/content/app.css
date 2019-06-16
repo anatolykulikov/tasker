@@ -15,49 +15,6 @@
   align-items: stretch;
   justify-content: flex-start; }
 
-@keyframes notifyLeave {
-  from {
-    left: 10px; }
-  to {
-    left: -240px; } }
-
-.notify {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  width: 210px;
-  border-radius: 4px;
-  background: #fff; }
-  .notify h4 {
-    display: block;
-    padding: 7px 10px; }
-  .notify p {
-    padding: 10px;
-    font-size: 14px;
-    line-height: 130%; }
-
-.notify-success {
-  color: #1D2734;
-  box-shadow: #C8E6C9 0 0 10px 0; }
-  .notify-success h4 {
-    background: #A5D6A7; }
-
-.notify-error {
-  color: #1D2734;
-  box-shadow: #ffcdd2 0 0 10px 0; }
-  .notify-error h4 {
-    color: #fff;
-    background: #f44336; }
-
-.notify-arrive {
-  animation: notifyLeave 1s ease-in-out;
-  animation-direction: reverse;
-  animation-fill-mode: forwards; }
-
-.notify-leave {
-  animation: notifyLeave 1s ease-in-out;
-  animation-fill-mode: forwards; }
-
 body {
   background: #F4F6F9; }
 
@@ -189,5 +146,108 @@ body {
   margin-bottom: 0;
   padding-bottom: 0;
   border-bottom: none; }
+
+@keyframes notifyLeave {
+  from {
+    left: 10px; }
+  to {
+    left: -240px; } }
+
+.notify {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 210px;
+  border-radius: 4px;
+  background: #fff; }
+  .notify h4 {
+    display: block;
+    padding: 7px 10px; }
+  .notify p {
+    padding: 10px;
+    font-size: 14px;
+    line-height: 130%; }
+
+.notify-success {
+  color: #1D2734;
+  box-shadow: #C8E6C9 0 0 10px 0; }
+  .notify-success h4 {
+    background: #A5D6A7; }
+
+.notify-error {
+  color: #1D2734;
+  box-shadow: #ffcdd2 0 0 10px 0; }
+  .notify-error h4 {
+    color: #fff;
+    background: #f44336; }
+
+.notify-arrive {
+  animation: notifyLeave 1s ease-in-out;
+  animation-direction: reverse;
+  animation-fill-mode: forwards; }
+
+.notify-leave {
+  animation: notifyLeave 1s ease-in-out;
+  animation-fill-mode: forwards; }
+
+.dialog {
+  position: fixed;
+  top: 30px;
+  left: 35%;
+  z-index: 100;
+  display: block;
+  width: 30%;
+  border: #E0E0E0 solid 1px;
+  box-shadow: #E0E0E0 0 0 10px;
+  background: #fff; }
+  .dialog header {
+    display: block;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: #fff;
+    background: #5585B5; }
+  .dialog__body {
+    display: block;
+    width: 100%;
+    padding: 5px 20px 20px; }
+    .dialog__body input[type="text"] {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      border-bottom: #5585B5 solid 1px;
+      padding: 10px;
+      font-size: 18px; }
+    .dialog__body textarea {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      min-height: 3rem;
+      border: #E0E0E0 solid 1px;
+      border-bottom: #5585B5 solid 1px;
+      margin-bottom: 20px;
+      padding: 10px;
+      font-size: 16px;
+      line-height: 130%; }
+    .dialog__body button.add {
+      display: inline-block;
+      padding: 10px;
+      font-size: 16px;
+      color: #fff;
+      background: #43A047;
+      transition: background ease-in-out .2s;
+      cursor: pointer; }
+    .dialog__body button.add:hover {
+      background: #388E3C; }
+    .dialog__body button.delete {
+      display: inline-block;
+      padding: 10px;
+      font-size: 16px;
+      color: #66717F;
+      background: #fff;
+      transition: color ease-in-out .2s;
+      cursor: pointer; }
+    .dialog__body button.delete:hover {
+      color: #F27171; }
 
 /*# sourceMappingURL=app.css.map */

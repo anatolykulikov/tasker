@@ -41,55 +41,7 @@ $border_light: $color_sidebar solid 1px;
     justify-content: flex-start;
 }
 
-
-@keyframes notifyLeave {
-    from {left: 10px;}
-    to {left: -240px;}
-}
-.notify {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    width: 210px;
-    border-radius: 4px;
-    background: $white;
-
-    h4 {
-        display: block;
-        padding: 7px 10px;
-    }
-    p {
-        padding: 10px;
-        font-size: 14px;
-        line-height: 130%;
-    }
-}
-.notify-success {
-    color: $color_text;
-    box-shadow: #C8E6C9 0 0 10px 0;
-    h4 {
-        background: #A5D6A7;
-    }
-}
-.notify-error {
-    color: $color_text;
-    box-shadow: #ffcdd2 0 0 10px 0;
-    h4 {
-        color: $white;
-        background: #f44336;
-    }
-}
-.notify-arrive {
-    animation: notifyLeave 1s ease-in-out;
-    animation-direction: reverse;
-    animation-fill-mode: forwards;
-}
-.notify-leave {
-    animation: notifyLeave 1s ease-in-out;
-    animation-fill-mode: forwards;
-}
-
-
-
 @import 'body';
 @import 'task';
+@import 'notify';
+@import 'dialog';

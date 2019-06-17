@@ -21,12 +21,15 @@ body {
 .app {
   width: 100%;
   max-width: 1200px;
-  margin: 40px auto;
+  height: auto;
+  max-height: 90vh;
+  margin: 5vh auto;
+  overflow: hidden;
   box-shadow: #E0E0E0 0 0 14px 0;
   background: #fff; }
   .app__sidebar {
     display: block;
-    width: 200px;
+    width: 180px;
     padding: 20px;
     background: #F5F5F5; }
     .app__sidebar h1 {
@@ -84,12 +87,16 @@ body {
       border-bottom: #E0E0E0 solid 1px;
       margin: 5px 0; }
   .app__body {
-    width: 1000px;
+    width: 1020px;
     padding: 27px 0; }
+  .app__wrapper {
+    display: block;
+    width: 100%; }
   .app__task_col {
     display: block;
     width: 34%;
-    max-width: 333.33333px;
+    overflow: auto;
+    max-width: 340px;
     padding: 0 20px 20px; }
     .app__task_col h2 {
       display: block;
@@ -99,9 +106,50 @@ body {
   .app__task_col:nth-of-type(2) {
     border-left: #E0E0E0 solid 1px;
     border-right: #E0E0E0 solid 1px; }
-  .app__task_wrapper {
+  .app__archive {
     display: block;
-    width: 100%; }
+    width: 70%;
+    padding: 0 20px 20px; }
+    .app__archive h2 {
+      display: block;
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: #1D2734; }
+  .app__archive_decr {
+    display: block;
+    width: 30%;
+    padding: 20px;
+    border-left: #E0E0E0 solid 1px; }
+    .app__archive_decr p {
+      display: block;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 130%;
+      color: #1D2734; }
+  .app__settings {
+    display: block;
+    width: 70%;
+    padding: 0 20px 20px; }
+    .app__settings h2 {
+      display: block;
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: #1D2734; }
+  .app__settings_decr {
+    display: block;
+    width: 30%;
+    padding: 20px;
+    border-left: #E0E0E0 solid 1px; }
+    .app__settings_decr p {
+      display: block;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 130%;
+      color: #1D2734;
+      word-break: break-all; }
+      .app__settings_decr p a {
+        font-size: inherit;
+        color: #5585B5; }
 
 .task {
   display: block;
@@ -142,10 +190,43 @@ body {
     .task__controls .control-archive {
       color: #7AC1D0; }
 
-.task:last-of-type {
+.task-archived {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: #F5F5F5 solid 1px; }
+  .task-archived h3 {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 120%;
+    color: #1D2734; }
+  .task-archived p {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    line-height: 130%;
+    color: #1D2734; }
+  .task-archived time {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    line-height: 130%;
+    color: #1D2734; }
+
+.task:last-of-type,
+.task-archived:last-of-type {
   margin-bottom: 0;
   padding-bottom: 0;
   border-bottom: none; }
+
+.empty__archive {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  color: #66717F; }
 
 @keyframes notifyLeave {
   from {
@@ -210,6 +291,14 @@ body {
     display: block;
     width: 100%;
     padding: 5px 20px 20px; }
+    .dialog__body p {
+      margin-bottom: .4rem;
+      font-size: 16px;
+      line-height: 130%; }
+    .dialog__body p:first-of-type {
+      margin-top: 10px; }
+    .dialog__body p:last-of-type {
+      margin-bottom: 10px; }
     .dialog__body input[type="text"] {
       display: block;
       width: 100%;
@@ -249,5 +338,76 @@ body {
       cursor: pointer; }
     .dialog__body button.delete:hover {
       color: #F27171; }
+
+.dialog-delete header {
+  display: block;
+  padding: 10px 20px;
+  font-size: 20px;
+  color: #fff;
+  background: #F27171; }
+
+.setting__param {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+  font-size: 16px;
+  line-height: 140%;
+  color: #1D2734; }
+  .setting__param span {
+    margin-right: .35rem;
+    font-size: inherit;
+    font-weight: 700;
+    color: #212121; }
+
+.setting__placebar {
+  display: block;
+  width: 100%;
+  height: 28px;
+  background: #E0E0E0; }
+  .setting__placebar span {
+    display: block;
+    height: 100%;
+    background: #5585B5; }
+
+.setting__delete {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: #E0E0E0 solid 1px; }
+  .setting__delete button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background: #F27171;
+    transition: background ease-in-out .2s; }
+  .setting__delete button:hover {
+    background: #c62828; }
+
+::selection {
+  background: #F4F6F9; }
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px; }
+
+::-webkit-scrollbar-button {
+  background-color: #666; }
+
+::-webkit-scrollbar-track {
+  background-color: #999; }
+
+::-webkit-scrollbar-track-piece {
+  background-color: #F4F6F9; }
+
+::-webkit-scrollbar-thumb {
+  background-color: #5585B5;
+  border-radius: 3px; }
+
+::-webkit-scrollbar-corner {
+  background-color: #999; }
+
+::-webkit-resizer {
+  background-color: #666; }
 
 /*# sourceMappingURL=app.css.map */

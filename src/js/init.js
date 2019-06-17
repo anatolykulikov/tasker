@@ -7,8 +7,8 @@ function initApp() {
         app = installApp();
         notify('Установлено', 'Приложение успешно установлено и готово к работе', 'success');
     }
-    draw_Main();
-    draw_Taskboard();
+    drawMain();
+    drawMenu('tasks');
 }
 
 function installApp() {
@@ -34,6 +34,6 @@ function updateApp() {
 function deleteApp() {
     localStorage.removeItem('TaskerApp');
     notify('Приложение удалено','Приложение полностью удалено, все данные уничтожены', 'error');
-    draw_Main();
-    draw_Taskboard();
+    drawMain();
+    drawTaskboard();
 }

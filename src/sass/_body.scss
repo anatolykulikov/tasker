@@ -7,7 +7,10 @@ body {
     @extend .flex-start;
     width: 100%;
     max-width: $width_app;
-    margin: $padding-2x auto;
+    height: auto;
+    max-height: 90vh;
+    margin: 5vh auto;
+    overflow: hidden;
     box-shadow: $color_shadow 0 0 14px 0;
     background: $white;
 
@@ -95,9 +98,16 @@ body {
         padding: $padding+7 0;
     }
 
+    &__wrapper {
+        display: block;
+        width: 100%;
+    }
+
+    // Основные элементы задачи
     &__task_col {
         display: block;
         width: 34%;
+        overflow: auto;
         max-width: $width_app-body / 3;
         padding: 0 $padding $padding;
 
@@ -113,8 +123,65 @@ body {
         border-right: $border_std;
     }
 
-    &__task_wrapper {
+    // Основные элементы архива
+    &__archive {
         display: block;
-        width: 100%;
+        width: 70%;
+        padding: 0 $padding $padding;
+
+        h2 {
+            display: block;
+            margin-bottom: $padding;
+            font-size: 20px;
+            color: $color_text;
+        }
+    }
+    &__archive_decr {
+        display: block;
+        width: 30%;
+        padding: $padding;
+        border-left: $border_std;
+
+        p {
+            display: block;
+            margin-bottom: $padding;
+            font-size: 16px;
+            line-height: 130%;
+            color: $color_text;
+        }
+    }
+
+    // Основные элементы страницы настроек
+    &__settings {
+        display: block;
+        width: 70%;
+        padding: 0 $padding $padding;
+
+        h2 {
+            display: block;
+            margin-bottom: $padding;
+            font-size: 20px;
+            color: $color_text;
+        }
+    }
+    &__settings_decr {
+        display: block;
+        width: 30%;
+        padding: $padding;
+        border-left: $border_std;
+
+        p {
+            display: block;
+            margin-bottom: $padding;
+            font-size: 16px;
+            line-height: 130%;
+            color: $color_text;
+            word-break: break-all;
+
+            a {
+                font-size: inherit;
+                color: $color_active;
+            }
+        }
     }
 }

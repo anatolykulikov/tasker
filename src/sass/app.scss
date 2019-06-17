@@ -8,6 +8,7 @@ $color_active: #5585B5;
 $color_ok: #A1C527;
 $color_warning: #FB8C00;
 $color_error: #F27171;
+$color_error-hover: #c62828;
 $color_archive: #7AC1D0;
 
 $color_success: #43A047;
@@ -17,10 +18,11 @@ $color_sidebar: #F5F5F5;
 $color_shadow: #E0E0E0;
 $color_body: #F4F6F9;
 $white: #fff;
+$black: #212121;
 
 // Sizes
 $width_app: 1200px;
-$width_app-sidebar: 200px;
+$width_app-sidebar: 180px;
 $width_app-body: $width_app - $width_app-sidebar;
 
 // Paddings
@@ -45,3 +47,5 @@ $border_light: $color_sidebar solid 1px;
 @import 'task';
 @import 'notify';
 @import 'dialog';
+@import 'settings';
+@import 'browser';

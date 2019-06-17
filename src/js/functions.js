@@ -34,7 +34,6 @@ function deleteTask(arr, element, from) {
 
 // Перемещение задачи
 function moveTask(arr, from, to, element) {
-    console.info(`Переместить задачу id${element} из ${from} в ${to}`);
     let run = arr[element];
     app[to].push(run);
     arr.splice(element, 1);
@@ -48,3 +47,35 @@ function getData() {
     let data = new Date();
     return data;
 };
+// Приведение даты к человеческому состоянию
+function humanizeData(d) {
+    let data = new Date(d);
+    let day = data.getDate(),
+        month = data.getMonth(),
+        year = data.getFullYear(),
+        hour = data.getHours(),
+        minute = data.getMinutes();
+    let monthNames = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+    let humanMonth = monthNames[month];
+    let response = day + ' ' + humanMonth + ' ' + year + ' в ' + hour + ':' + minute;
+    return response;
+}
+
+
+// Свободное место
+function sizeUsed() {
+    let appToString = JSON.stringify(app);
+    let appSize = ((appToString.length * 2) / 1024).toFixed(2);
+    let percent = ((appSize / 5120) * 100).toFixed(2);
+    let response = appSize + 'Кб из 5Мб (' + percent +'% используется)';
+    return response;
+}
+function sizeUsedPercent() {
+    let appToString = JSON.stringify(app);
+    let appSize = ((appToString.length * 2) / 1024).toFixed(2);
+    let percent = ((appSize / 5120) * 100).toFixed(2);
+    if(percent < 1) {
+        percent = 1;
+    }
+    return percent;
+}

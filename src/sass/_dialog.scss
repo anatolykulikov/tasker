@@ -22,6 +22,18 @@
         width: 100%;
         padding: $padding-025x $padding $padding;
 
+        p {
+            margin-bottom: .4rem;
+            font-size: 16px;
+            line-height: 130%;
+        }
+        p:first-of-type {
+            margin-top: $padding-05x;
+        }
+        p:last-of-type {
+            margin-bottom: $padding-05x;
+        }
+
         input[type="text"] {
             display: block;
             width: 100%;
@@ -70,5 +82,14 @@
         button.delete:hover {
             color: $color_error;
         }
+    }
+}
+.dialog-delete {
+    header {
+        display: block;
+        padding: $padding-05x $padding;
+        font-size: 20px;
+        color: $white;
+        background: $color_error;
     }
 }

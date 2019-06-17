@@ -1,19 +1,40 @@
 // Отрисовка приложения
-function draw_Main() {
-    let html = '<aside class="app__sidebar"><h1>Tasker<span>.app</span></h1><nav class="app__menu"><span class="app__menu_addtask" id="addtask">Добавить</span><span class="app__menu_element app__menu-selected">Задачи</span><span class="app__menu_element">Архив</span><hr class="app__menu_divider"><span class="app__menu_element">Настройки</span></nav></aside><div id="appbody" class="app__body"></div>';
+function drawMain() {
+    let html = '<aside class="app__sidebar"><h1>Tasker<span>.app</span></h1><nav class="app__menu" id="appmenu"></nav></aside><div id="appbody" class="app__body"></div>';
     document.getElementById('main').innerHTML = html;
+    
+}
+
+//Отрисовка меню
+function drawMenu(page) {
+    switch(page) {
+        case 'tasks': {
+            let html = `<span class="app__menu_addtask" id="addtask">Добавить</span><span class="app__menu_element app__menu-selected">Задачи</span><span class="app__menu_element" onclick="drawMenu('archive')">Архив</span><hr class="app__menu_divider"><span class="app__menu_element" onclick="drawMenu('settings')">Настройки</span>`;
+            document.getElementById('appmenu').innerHTML = html;
+            drawTaskboard();
+        break;}
+        case 'archive': {
+            let html = `<span class="app__menu_addtask" id="addtask">Добавить</span><span class="app__menu_element" onclick="drawMenu('tasks')">Задачи</span><span class="app__menu_element app__menu-selected">Архив</span><hr class="app__menu_divider"><span class="app__menu_element" onclick="drawMenu('settings')">Настройки</span>`;
+            document.getElementById('appmenu').innerHTML = html;
+            drawArchive();
+        break;}
+        case 'settings': {
+            let html = `<span class="app__menu_addtask" id="addtask">Добавить</span><span class="app__menu_element" onclick="drawMenu('tasks')">Задачи</span><span class="app__menu_element" onclick="drawMenu('archive')">Архив</span><hr class="app__menu_divider"><span class="app__menu_element app__menu-selected">Настройки</span>`;
+            document.getElementById('appmenu').innerHTML = html;
+            drawSettings();
+        break;}
+    }
     document.getElementById('addtask').addEventListener('click', createTask);
 }
 
 // Отрисовка доски задач
-function draw_Taskboard() {
-    let html = '<section class="app__task_col"><h2>План</h2><div class="app__task_wrapper" id="plan"></div></section><section class="app__task_col"><h2>В работе</h2><div class="app__task_wrapper" id="work"></div></section><section class="app__task_col"><h2>Выполнены</h2><div class="app__task_wrapper" id="done"></div></section>';
+function drawTaskboard() {
+    let html = '<section class="app__task_col"><h2>План</h2><div class="app__wrapper" id="plan"></div></section><section class="app__task_col"><h2>В работе</h2><div class="app__wrapper" id="work"></div></section><section class="app__task_col"><h2>Выполнены</h2><div class="app__wrapper" id="done"></div></section>';
     document.getElementById('appbody').innerHTML = html;
     drawTasks('plan');
     drawTasks('work');
     drawTasks('done');
 }
-
 // Отрисовка задачи
 function drawTasks(field) {
     let data = app[field];
@@ -94,7 +115,6 @@ function drawTasks(field) {
         }
     }
 }
-
 // Окно добавления задания
 function createTask() {
     let addTaskId = Math.trunc(Math.random() * 10);
@@ -111,7 +131,6 @@ function createTask() {
         closeTask(addTaskId);
     });
 }
-
 // Закрытие окна добавления задания
 function closeTask(id) {
     document.getElementById(id).removeEventListener('click', function() {
@@ -121,6 +140,60 @@ function closeTask(id) {
         closeTask(id);
     });
     document.getElementById('dialog-' + id).remove();
+}
+
+// Отрисовка архива
+function drawArchive() {
+    let html = '<section class="app__archive"><h2>Архив задач</h2><div class="app__wrapper" id="archive"></div></section><section class="app__archive_decr"><p>Здесь хранятся все выполненные вами задачи</p>';
+    document.getElementById('appbody').innerHTML = html;
+    drawArchiveTask();
+}
+// Отрисовка задачи из архива
+function drawArchiveTask() {
+    let data = app.archive;
+    let render = '';
+    if(data.length !== 0) {
+        for(let i = 0; i < data.length; i++) {
+            let dataCreateTask = humanizeData(data[i].data);
+            let html = `<div class="task-archived"><h3>${data[i].name}</h3><p>${data[i].decr}</p><time>Задача создана: ${dataCreateTask}</time></div>`;
+            render = render + html;
+        }
+    } else {
+        render = '<div class="empty__archive">В архиве ничего нет</div>'
+    }
+    document.getElementById('archive').innerHTML = render;
+}
+
+// Отрисовка настроек
+function drawSettings() {
+    let usedPlace = `<div class="setting__param"><span>Используемое место:</span>${sizeUsed()}</div>`;
+    let usedBar = `<div class="setting__placebar"><span style="width:${sizeUsedPercent()}%;"></span></div>`;
+    let delele = `<div class="setting__delete"><button onclick="deleteAppProcess()">Удалить приложение</button></div>`;
+    let html = `<section class="app__settings"><h2>Настройки</h2><div class="app__wrapper">${usedPlace + usedBar + delele}</div></section><section class="app__settings_decr"><p>Настройки приложения и основная информация</p><p>Разработчик: <a href="https://anatolykulikov.ru" target="_blank">Анатолий Куликов</a></p><p>Репозиторий на <a href="https://github.com/anatolykulikov/tasker" target="_blank">Github</a></p></section>`;
+    document.getElementById('appbody').innerHTML = html;
+}
+
+// Полное удаление приложения
+function deleteAppProcess() {
+    let dialog = document.createElement('div');
+        dialog.className = 'dialog dialog-delete';
+        dialog.id = 'deleteApp';
+        dialog.innerHTML = '<header>Удаление приложения</header><div class="dialog__body"><p>Вы собираетесь удалить данные приложения Tasker.</p><p>Все данные будут удалены, восстановить их будет невозможно!</p><button class="add" id="close-deleteApp">Отменить удаление</button><button class="delete" id="KillApp">Удалить</button></div>';
+
+    document.body.appendChild(dialog);
+    document.getElementById('close-deleteApp').addEventListener('click', closeDeleteApp);
+    document.getElementById('KillApp').addEventListener('click', KillApp);
+}
+function closeDeleteApp() {
+    document.getElementById('close-deleteApp').removeEventListener('click', closeDeleteApp);
+    document.getElementById('KillApp').removeEventListener('click', KillApp);
+    document.getElementById('deleteApp').remove();
+}
+function KillApp() {
+    document.getElementById('close-deleteApp').removeEventListener('click', closeDeleteApp);
+    document.getElementById('KillApp').removeEventListener('click', KillApp);
+    document.getElementById('deleteApp').remove();
+    deleteApp();
 }
 
 // Вызов оповещения

@@ -1,0 +1,47 @@
+.setting__param {
+    display: block;
+    width: 100%;
+    margin-bottom: $padding-025x;
+    font-size: 16px;
+    line-height: 140%;
+    color: $color_text;
+
+    span {
+        margin-right: .35rem;
+        font-size: inherit;
+        font-weight: 700;
+        color: $black;
+    }
+}
+
+.setting__placebar {
+    display: block;
+    width: 100%;
+    height: 28px;
+    background: $color_shadow;
+
+    span {
+        display: block;
+        height: 100%;
+        background: $color_active;
+    }
+}
+
+.setting__delete {
+    display: block;
+    width: 100%;
+    margin-top: $padding;
+    padding-top: $padding;
+    border-top: $border_std;
+
+    button {
+        display: inline-block;
+        padding: $padding-05x $padding;
+        color: $white;
+        background: $color_error;
+        transition: background ease-in-out .2s;
+    }
+    button:hover {
+        background: $color_error-hover;
+    }
+}

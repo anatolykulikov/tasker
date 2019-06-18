@@ -55,6 +55,7 @@ function humanizeData(d) {
         year = data.getFullYear(),
         hour = data.getHours(),
         minute = data.getMinutes();
+    if(minute<10) {minute = '0' + minute;}
     let monthNames = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
     let humanMonth = monthNames[month];
     let response = day + ' ' + humanMonth + ' ' + year + ' в ' + hour + ':' + minute;

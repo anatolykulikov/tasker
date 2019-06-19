@@ -2,10 +2,10 @@ function initApp() {
     // Приложение установлено
     if(localStorage.getItem('TaskerApp')) {
         app = loadApp();
-        notify('Готово', 'Все данные загружены', 'success');
+        notify('success');
     } else {
         app = installApp();
-        notify('Установлено', 'Приложение успешно установлено и готово к работе', 'success');
+        notify('success');
     }
     drawMain();
     drawMenu('tasks');
@@ -21,7 +21,7 @@ function installApp() {
         archive: []
     };
     localStorage.setItem('TaskerApp', JSON.stringify(app));
-    notify('Готово!','Приложение успешно установлено и готово к работе', 'success');
+    notify('success');
     return app;
 }
 function loadApp() {
@@ -33,7 +33,7 @@ function updateApp() {
 }
 function deleteApp() {
     localStorage.removeItem('TaskerApp');
-    notify('Приложение удалено','Приложение полностью удалено, все данные уничтожены', 'error');
+    notify('error');
     drawMain();
     drawTaskboard();
 }

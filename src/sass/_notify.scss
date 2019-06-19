@@ -1,46 +1,28 @@
-@keyframes notifyLeave {
-    from {left: 10px;}
-    to {left: -240px;}
+@keyframes notifyProgress {
+    from {width: 0%;}
+    to {width: 100%;}
 }
 .notify {
     position: fixed;
-    top: 10px;
-    left: 10px;
-    width: 210px;
-    border-radius: 4px;
-    background: $white;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    width: 100%;
 
-    h4 {
+    .notify-success {
         display: block;
-        padding: 7px 10px;
+        height: 2px;
+        box-shadow: $color_success 0 0 10px 0;
+        background: $color_success;
+        animation: notifyProgress 1s cubic-bezier(.92, .07, .69, .77);
+        animation-fill-mode: forwards;
     }
-    p {
-        padding: 10px;
-        font-size: 14px;
-        line-height: 130%;
+    .notify-error {
+        display: block;
+        height: 2px;
+        box-shadow: $color_error 0 0 10px 0;
+        background: $color_error;
+        animation: notifyProgress 1s cubic-bezier(.92, .07, .69, .77);
+        animation-fill-mode: forwards;
     }
-}
-.notify-success {
-    color: $color_text;
-    box-shadow: #C8E6C9 0 0 10px 0;
-    h4 {
-        background: #A5D6A7;
-    }
-}
-.notify-error {
-    color: $color_text;
-    box-shadow: #ffcdd2 0 0 10px 0;
-    h4 {
-        color: $white;
-        background: #f44336;
-    }
-}
-.notify-arrive {
-    animation: notifyLeave 1s ease-in-out;
-    animation-direction: reverse;
-    animation-fill-mode: forwards;
-}
-.notify-leave {
-    animation: notifyLeave 1s ease-in-out;
-    animation-fill-mode: forwards;
 }

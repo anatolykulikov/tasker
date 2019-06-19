@@ -9,17 +9,17 @@ function drawMain() {
 function drawMenu(page) {
     switch(page) {
         case 'tasks': {
-            let html = `<span class="app__menu_addtask" id="addtask">Добавить</span><span class="app__menu_element app__menu-selected">Задачи</span><span class="app__menu_element" onclick="drawMenu('archive')">Архив</span><hr class="app__menu_divider"><span class="app__menu_element" onclick="drawMenu('settings')">Настройки</span>`;
+            let html = `<span class="app__menu_addtask" id="addtask">Добавить</span><span class="app__menu_element app__menu-selected">Задачи</span><span class="app__menu_element" onclick="drawMenu('archive')">Архив</span><hr class="app__menu_divider"><span class="app__menu_element" onclick="drawMenu('settings')">Приложение</span>`;
             document.getElementById('appmenu').innerHTML = html;
             drawTaskboard();
         break;}
         case 'archive': {
-            let html = `<span class="app__menu_addtask" id="addtask">Добавить</span><span class="app__menu_element" onclick="drawMenu('tasks')">Задачи</span><span class="app__menu_element app__menu-selected">Архив</span><hr class="app__menu_divider"><span class="app__menu_element" onclick="drawMenu('settings')">Настройки</span>`;
+            let html = `<span class="app__menu_addtask" id="addtask">Добавить</span><span class="app__menu_element" onclick="drawMenu('tasks')">Задачи</span><span class="app__menu_element app__menu-selected">Архив</span><hr class="app__menu_divider"><span class="app__menu_element" onclick="drawMenu('settings')">Приложение</span>`;
             document.getElementById('appmenu').innerHTML = html;
             drawArchive();
         break;}
         case 'settings': {
-            let html = `<span class="app__menu_addtask" id="addtask">Добавить</span><span class="app__menu_element" onclick="drawMenu('tasks')">Задачи</span><span class="app__menu_element" onclick="drawMenu('archive')">Архив</span><hr class="app__menu_divider"><span class="app__menu_element app__menu-selected">Настройки</span>`;
+            let html = `<span class="app__menu_addtask" id="addtask">Добавить</span><span class="app__menu_element" onclick="drawMenu('tasks')">Задачи</span><span class="app__menu_element" onclick="drawMenu('archive')">Архив</span><hr class="app__menu_divider"><span class="app__menu_element app__menu-selected">Приложение</span>`;
             document.getElementById('appmenu').innerHTML = html;
             drawSettings();
         break;}
@@ -169,7 +169,7 @@ function drawSettings() {
     let usedPlace = `<div class="setting__param"><span>Используемое место:</span>${sizeUsed()}</div>`;
     let usedBar = `<div class="setting__placebar"><span style="width:${sizeUsedPercent()}%;"></span></div>`;
     let delele = `<div class="setting__delete"><button onclick="deleteAppProcess()">Удалить приложение</button></div>`;
-    let html = `<section class="app__settings"><h2>Настройки</h2><div class="app__wrapper">${usedPlace + usedBar + delele}</div></section><section class="app__settings_decr"><p>Настройки приложения и основная информация</p><p>Разработчик: <a href="https://anatolykulikov.ru" target="_blank">Анатолий Куликов</a></p><p>Репозиторий на <a href="https://github.com/anatolykulikov/tasker" target="_blank">Github</a></p></section>`;
+    let html = `<section class="app__settings"><h2>Сведения о приложении</h2><div class="app__wrapper">${usedPlace + usedBar + delele}</div></section><section class="app__settings_decr"><p>Настройки приложения и основная информация</p><p>Разработчик: <a href="https://anatolykulikov.ru" target="_blank">Анатолий Куликов</a></p><p>Репозиторий на <a href="https://github.com/anatolykulikov/tasker" target="_blank">Github</a></p></section>`;
     document.getElementById('appbody').innerHTML = html;
 }
 
@@ -197,19 +197,12 @@ function KillApp() {
 }
 
 // Вызов оповещения
-function notify(head, message, type) {
+function notify(type) {
     let notify = document.createElement('div');
-    notify.id = Math.trunc(Math.random() * 10);
-    notify.className = `notify notify-${type} notify-arrive`;
-    notify.innerHTML = `<h4>${head}</h4><p>${message}</p>`;
+    notify.className = 'notify';
+    notify.innerHTML = `<div class="notify-${type}"></div>`; 
     document.body.appendChild(notify);
     setTimeout(function () {
-        notify.classList.remove('notify-arrive');
-        setTimeout(function () {
-            notify.classList.add('notify-leave')
-            setTimeout(function () {
-                notify.remove();
-            }, 1200);
-        }, 4000)
-    }, 1000);
+        notify.remove();
+    }, 1250);
 }

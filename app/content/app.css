@@ -40,7 +40,7 @@ body {
       color: #1D2734;
       pointer-events: none; }
       .app__sidebar h1 span {
-        color: #5585B5; }
+        color: #3b535f; }
   .app__menu {
     display: block;
     width: 100%; }
@@ -228,48 +228,32 @@ body {
   font-size: 16px;
   color: #66717F; }
 
-@keyframes notifyLeave {
+@keyframes notifyProgress {
   from {
-    left: 10px; }
+    width: 0%; }
   to {
-    left: -240px; } }
+    width: 100%; } }
 
 .notify {
   position: fixed;
-  top: 10px;
-  left: 10px;
-  width: 210px;
-  border-radius: 4px;
-  background: #fff; }
-  .notify h4 {
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  width: 100%; }
+  .notify .notify-success {
     display: block;
-    padding: 7px 10px; }
-  .notify p {
-    padding: 10px;
-    font-size: 14px;
-    line-height: 130%; }
-
-.notify-success {
-  color: #1D2734;
-  box-shadow: #C8E6C9 0 0 10px 0; }
-  .notify-success h4 {
-    background: #A5D6A7; }
-
-.notify-error {
-  color: #1D2734;
-  box-shadow: #ffcdd2 0 0 10px 0; }
-  .notify-error h4 {
-    color: #fff;
-    background: #f44336; }
-
-.notify-arrive {
-  animation: notifyLeave 1s ease-in-out;
-  animation-direction: reverse;
-  animation-fill-mode: forwards; }
-
-.notify-leave {
-  animation: notifyLeave 1s ease-in-out;
-  animation-fill-mode: forwards; }
+    height: 2px;
+    box-shadow: #43A047 0 0 10px 0;
+    background: #43A047;
+    animation: notifyProgress 1s cubic-bezier(0.92, 0.07, 0.69, 0.77);
+    animation-fill-mode: forwards; }
+  .notify .notify-error {
+    display: block;
+    height: 2px;
+    box-shadow: #F27171 0 0 10px 0;
+    background: #F27171;
+    animation: notifyProgress 1s cubic-bezier(0.92, 0.07, 0.69, 0.77);
+    animation-fill-mode: forwards; }
 
 .dialog {
   position: fixed;

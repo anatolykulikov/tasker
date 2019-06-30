@@ -8,6 +8,7 @@ body {
     width: 100%;
     max-width: $width_app;
     height: auto;
+    min-height: 300px;
     max-height: 90vh;
     margin: 5vh auto;
     overflow: hidden;
@@ -128,6 +129,7 @@ body {
         display: block;
         width: 70%;
         padding: 0 $padding $padding;
+        overflow: auto;
 
         h2 {
             display: block;

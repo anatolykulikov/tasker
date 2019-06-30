@@ -73,6 +73,7 @@
         button.delete {
             display: inline-block;
             padding: $padding-05x;
+            margin-left: .3rem;
             font-size: 16px;
             color: $color_text-secondary;
             background: $white;
@@ -91,5 +92,8 @@
         font-size: 20px;
         color: $white;
         background: $color_error;
+    }
+    button {
+        margin-top: .5rem;
     }
 }

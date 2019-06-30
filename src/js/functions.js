@@ -3,7 +3,7 @@ function createTaskСheck(id) {
     let taskName = document.getElementById('dialog-' + id + '-name').value;
     let taskDesc = document.getElementById('dialog-' + id + '-decr').value;
 
-    if(taskName.length > 0 && taskDesc .length > 0) {
+    if(taskName.length > 0) {
         addTask(taskName, taskDesc);
         document.getElementById(id).removeEventListener('click', function() {
             createTaskСheck(id);
@@ -14,6 +14,10 @@ function createTaskСheck(id) {
 
 // Добавление задачи
 function addTask(name, desc) {
+    if(app.state !== 'tasks') {
+        app.state = 'tasks';
+        drawMenu(app.state);
+    }
     let task = {
         id: ++app.task_coint,
         name: name,
@@ -35,6 +39,8 @@ function deleteTask(arr, element, from) {
 // Перемещение задачи
 function moveTask(arr, from, to, element) {
     let run = arr[element];
+    if(from == 'work' && to == 'done') {
+        run.datafinished = getData();    }
     app[to].push(run);
     arr.splice(element, 1);
     drawTasks(from);

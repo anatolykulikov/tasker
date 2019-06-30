@@ -22,6 +22,7 @@ body {
   width: 100%;
   max-width: 1200px;
   height: auto;
+  min-height: 300px;
   max-height: 90vh;
   margin: 5vh auto;
   overflow: hidden;
@@ -109,7 +110,8 @@ body {
   .app__archive {
     display: block;
     width: 70%;
-    padding: 0 20px 20px; }
+    padding: 0 20px 20px;
+    overflow: auto; }
     .app__archive h2 {
       display: block;
       margin-bottom: 20px;
@@ -210,11 +212,13 @@ body {
     line-height: 130%;
     color: #1D2734; }
   .task-archived time {
-    display: block;
+    display: inline-block;
     margin-bottom: 5px;
     font-size: 12px;
     line-height: 130%;
     color: #1D2734; }
+  .task-archived time:first-of-type {
+    margin-right: .5rem; }
 
 .task:last-of-type,
 .task-archived:last-of-type {
@@ -315,6 +319,7 @@ body {
     .dialog__body button.delete {
       display: inline-block;
       padding: 10px;
+      margin-left: .3rem;
       font-size: 16px;
       color: #66717F;
       background: #fff;
@@ -329,6 +334,9 @@ body {
   font-size: 20px;
   color: #fff;
   background: #F27171; }
+
+.dialog-delete button {
+  margin-top: .5rem; }
 
 .setting__param {
   display: block;
@@ -376,13 +384,14 @@ body {
   height: 3px; }
 
 ::-webkit-scrollbar-button {
-  background-color: #666; }
+  background-color: transparent;
+  height: 0px; }
 
 ::-webkit-scrollbar-track {
-  background-color: #999; }
+  background-color: transparent; }
 
 ::-webkit-scrollbar-track-piece {
-  background-color: #F4F6F9; }
+  background-color: transparent; }
 
 ::-webkit-scrollbar-thumb {
   background-color: #5585B5;

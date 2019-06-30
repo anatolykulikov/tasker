@@ -8,7 +8,7 @@ function initApp() {
         notify('success');
     }
     drawMain();
-    drawMenu('tasks');
+    drawMenu(app.state);    
 }
 
 function installApp() {
@@ -18,22 +18,30 @@ function installApp() {
         plan: [],
         work: [],
         done: [],
-        archive: []
+        archive: [],
+        state: 'tasks'
     };
     localStorage.setItem('TaskerApp', JSON.stringify(app));
     notify('success');
     return app;
 }
 function loadApp() {
-    app = JSON.parse(localStorage.getItem('TaskerApp'));
-    return app;
+    let localapp = JSON.parse(localStorage.getItem('TaskerApp'));
+
+    if(!localapp.state) {
+        console.log('Создаем состояние для приложения');
+        localapp.state = 'tasks';
+    }
+    return localapp;
 }
 function updateApp() {
     localStorage.setItem('TaskerApp', JSON.stringify(app));
 }
 function deleteApp() {
     localStorage.removeItem('TaskerApp');
+    app = null;
     notify('error');
-    drawMain();
-    drawTaskboard();
+    setTimeout(function () {
+        document.location.reload(true);
+    }, 1250);
 }

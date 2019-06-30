@@ -74,11 +74,14 @@
         color: $color_text;
     }
     time {
-        display: block;
+        display: inline-block;
         margin-bottom: $padding-025x;
         font-size: 12px;
         line-height: 130%;
         color: $color_text;
+    }
+    time:first-of-type {
+        margin-right: .5rem;
     }
 }
 

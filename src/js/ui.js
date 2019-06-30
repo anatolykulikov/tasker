@@ -7,6 +7,7 @@ function drawMain() {
 
 //Отрисовка меню
 function drawMenu(page) {
+    app.state = page;
     switch(page) {
         case 'tasks': {
             let html = `<span class="app__menu_addtask" id="addtask">Добавить</span><span class="app__menu_element app__menu-selected">Задачи</span><span class="app__menu_element" onclick="drawMenu('archive')">Архив</span><hr class="app__menu_divider"><span class="app__menu_element" onclick="drawMenu('settings')">Приложение</span>`;
@@ -25,6 +26,7 @@ function drawMenu(page) {
         break;}
     }
     document.getElementById('addtask').addEventListener('click', createTask);
+    updateApp();
 }
 
 // Отрисовка доски задач
@@ -39,7 +41,6 @@ function drawTaskboard() {
 function drawTasks(field) {
     let data = app[field];
     let render = '';
-
     switch(field) {
         // Отрисовываем элементы в плане
         case 'plan': {
@@ -115,6 +116,7 @@ function drawTasks(field) {
         }
     }
 }
+
 // Окно добавления задания
 function createTask() {
     let addTaskId = Math.trunc(Math.random() * 10);
@@ -122,7 +124,6 @@ function createTask() {
         dialog.className = 'dialog';
         dialog.id = 'dialog-' + addTaskId;
         dialog.innerHTML = '<header>Новая задача</header><div class="dialog__body"><input type="text" id="dialog-' + addTaskId + '-name" placeholder="Название задачи"><textarea id="dialog-' + addTaskId + '-decr" placeholder="Краткое описание задачи"></textarea><button class="add" id=' + addTaskId + '>Добавить</button><button class="delete" id="close-' + addTaskId + '">Закрыть</button></div>';
-
     document.body.appendChild(dialog);
     document.getElementById(addTaskId).addEventListener('click', function() {
         createTaskСheck(addTaskId);
@@ -153,9 +154,16 @@ function drawArchiveTask() {
     let data = app.archive;
     let render = '';
     if(data.length !== 0) {
-        for(let i = 0; i < data.length; i++) {
+        for(let i = data.length - 1; i > -1; i--) {
             let dataCreateTask = humanizeData(data[i].data);
-            let html = `<div class="task-archived"><h3>${data[i].name}</h3><p>${data[i].decr}</p><time>Задача создана: ${dataCreateTask}</time></div>`;
+            let dataFinishedTask
+            if(data[i].datafinished) {
+                dataFinishedTask = humanizeData(data[i].datafinished);
+            } else {
+                dataFinishedTask = 'нет данных';
+            }
+            let id_delete = `delarch-${data[i].id}`;
+            let html = `<div class="task-archived"><h3>${data[i].name}</h3><p>${data[i].decr}</p><time>Задача создана: ${dataCreateTask}</time><time>Задача завершена: ${dataFinishedTask}</time></div>`;
             render = render + html;
         }
     } else {

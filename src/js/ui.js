@@ -161,7 +161,6 @@ function drawArchiveTask() {
             } else {
                 dataFinishedTask = 'нет данных';
             }
-            let id_delete = `delarch-${data[i].id}`;
             let html = `<div class="task-archived"><h3>${data[i].name}</h3><p>${data[i].decr}</p><time>Задача создана: ${dataCreateTask}</time><time>Задача завершена: ${dataFinishedTask}</time></div>`;
             render = render + html;
         }
@@ -173,10 +172,11 @@ function drawArchiveTask() {
 
 // Отрисовка настроек
 function drawSettings() {
+    let appVersion = `<div class="setting__param"><span>Версия приложения:</span>${app.version}</div>`;
     let usedPlace = `<div class="setting__param"><span>Используемое место:</span>${sizeUsed()}</div>`;
     let usedBar = `<div class="setting__placebar"><span style="width:${sizeUsedPercent()}%;"></span></div>`;
     let delele = `<div class="setting__delete"><button onclick="deleteAppProcess()">Удалить все данные</button></div>`;
-    let html = `<section class="app__settings"><h2>Сведения о приложении</h2><div class="app__wrapper">${usedPlace + usedBar + delele}</div></section><section class="app__settings_decr"><p>Настройки приложения и основная информация</p><p>Разработчик: <a href="https://anatolykulikov.ru" target="_blank">Анатолий Куликов</a></p><p>Репозиторий на <a href="https://github.com/anatolykulikov/tasker" target="_blank">Github</a></p></section>`;
+    let html = `<section class="app__settings"><h2>Сведения о приложении</h2><div class="app__wrapper">${appVersion + usedPlace + usedBar + delele}</div></section><section class="app__settings_decr"><p>Настройки приложения и основная информация</p><p>Разработчик: <a href="https://anatolykulikov.ru" target="_blank">Анатолий Куликов</a></p><p>Репозиторий на <a href="https://github.com/anatolykulikov/tasker" target="_blank">Github</a></p></section>`;
     document.getElementById('appbody').innerHTML = html;
 }
 

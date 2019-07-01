@@ -3,9 +3,15 @@
     z-index: 100;
     top: 0;
     left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     width: 100%;
     height: 100vh;   
     background: rgba(255,255,255,.87);
@@ -16,7 +22,8 @@
     width: 400px;
     min-width: 350px;
     border: $border_std;
-    box-shadow: $color_shadow 0 0 10px;
+    -webkit-box-shadow: $color_shadow 0 0 10px;
+            box-shadow: $color_shadow 0 0 10px;
     background: $white;
 
     header {
@@ -73,6 +80,7 @@
             font-size: 16px;
             color: $white;
             background: $color_success;
+            -webkit-transition: background ease-in-out .2s;
             transition: background ease-in-out .2s;
             cursor: pointer;
         }
@@ -87,6 +95,7 @@
             font-size: 16px;
             color: $color_text-secondary;
             background: $white;
+            -webkit-transition: color ease-in-out .2s;
             transition: color ease-in-out .2s;
             cursor: pointer;
         }

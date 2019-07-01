@@ -28,20 +28,26 @@
 }
 
 .setting__delete {
-    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     width: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
     margin-top: $padding;
     padding-top: $padding;
     border-top: $border_std;
 
     button {
         display: inline-block;
-        padding: $padding-05x $padding;
-        color: $white;
-        background: $color_error;
-        transition: background ease-in-out .2s;
+        padding: $padding-05x 0;
+        color: $color_error;
+        background: transparent;
+        -webkit-transition: color ease-in-out .2s;
+        transition: color ease-in-out .2s;
     }
     button:hover {
-        background: $color_error-hover;
+        color: $color_error-hover;
     }
 }

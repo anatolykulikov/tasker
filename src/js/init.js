@@ -13,7 +13,7 @@ function initApp() {
 
 function installApp() {
     let app = {
-        version: 1,
+        version: '0.9.5',
         task_coint: 0,
         plan: [],
         work: [],
@@ -27,10 +27,9 @@ function installApp() {
 }
 function loadApp() {
     let localapp = JSON.parse(localStorage.getItem('TaskerApp'));
-
-    if(!localapp.state) {
-        console.log('Создаем состояние для приложения');
+    if(localapp.version !== '0.9.5') {
         localapp.state = 'tasks';
+        localapp.version = '0.9.5';
     }
     return localapp;
 }

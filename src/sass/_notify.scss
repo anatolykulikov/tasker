@@ -1,3 +1,7 @@
+@-webkit-keyframes notifyProgress {
+    from {width: 0%;}
+    to {width: 100%;}
+}
 @keyframes notifyProgress {
     from {width: 0%;}
     to {width: 100%;}
@@ -12,17 +16,23 @@
     .notify-success {
         display: block;
         height: 2px;
-        box-shadow: $color_success 0 0 10px 0;
+        -webkit-box-shadow: $color_success 0 0 10px 0;
+                box-shadow: $color_success 0 0 10px 0;
         background: $color_success;
-        animation: notifyProgress 1s cubic-bezier(.92, .07, .69, .77);
-        animation-fill-mode: forwards;
+        -webkit-animation: notifyProgress 1s cubic-bezier(.92, .07, .69, .77);
+                animation: notifyProgress 1s cubic-bezier(.92, .07, .69, .77);
+        -webkit-animation-fill-mode: forwards;
+                animation-fill-mode: forwards;
     }
     .notify-error {
         display: block;
         height: 2px;
-        box-shadow: $color_error 0 0 10px 0;
+        -webkit-box-shadow: $color_error 0 0 10px 0;
+                box-shadow: $color_error 0 0 10px 0;
         background: $color_error;
-        animation: notifyProgress 1s cubic-bezier(.92, .07, .69, .77);
-        animation-fill-mode: forwards;
+        -webkit-animation: notifyProgress 1s cubic-bezier(.92, .07, .69, .77);
+                animation: notifyProgress 1s cubic-bezier(.92, .07, .69, .77);
+        -webkit-animation-fill-mode: forwards;
+                animation-fill-mode: forwards;
     }
 }

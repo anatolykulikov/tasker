@@ -121,9 +121,9 @@ function drawTasks(field) {
 function createTask() {
     let addTaskId = Math.trunc(Math.random() * 10);
     let dialog = document.createElement('div');
-        dialog.className = 'dialog';
+        dialog.className = 'modalwrap';
         dialog.id = 'dialog-' + addTaskId;
-        dialog.innerHTML = '<header>Новая задача</header><div class="dialog__body"><input type="text" id="dialog-' + addTaskId + '-name" placeholder="Название задачи"><textarea id="dialog-' + addTaskId + '-decr" placeholder="Краткое описание задачи"></textarea><button class="add" id=' + addTaskId + '>Добавить</button><button class="delete" id="close-' + addTaskId + '">Закрыть</button></div>';
+        dialog.innerHTML = '<div class="dialog"><header>Новая задача</header><div class="dialog__body"><input type="text" id="dialog-' + addTaskId + '-name" placeholder="Название задачи"><textarea id="dialog-' + addTaskId + '-decr" placeholder="Краткое описание задачи"></textarea><button class="add" id=' + addTaskId + '>Добавить</button><button class="delete" id="close-' + addTaskId + '">Закрыть</button></div></div>';
     document.body.appendChild(dialog);
     document.getElementById(addTaskId).addEventListener('click', function() {
         createTaskСheck(addTaskId);

@@ -1,12 +1,14 @@
 // Main
 body {
     background: $color_body;
+    overflow: hidden;
 }
 
 .app {
     @extend .flex-start;
     width: 100%;
     max-width: $width_app;
+    min-width: 960px;
     height: auto;
     min-height: 300px;
     max-height: 90vh;

@@ -2,7 +2,6 @@
 function drawMain() {
     let html = '<aside class="app__sidebar"><h1>Tasker<span>.app</span></h1><nav class="app__menu" id="appmenu"></nav></aside><div id="appbody" class="app__body"></div>';
     document.getElementById('main').innerHTML = html;
-    
 }
 
 //Отрисовка меню
@@ -176,7 +175,7 @@ function drawArchiveTask() {
 function drawSettings() {
     let usedPlace = `<div class="setting__param"><span>Используемое место:</span>${sizeUsed()}</div>`;
     let usedBar = `<div class="setting__placebar"><span style="width:${sizeUsedPercent()}%;"></span></div>`;
-    let delele = `<div class="setting__delete"><button onclick="deleteAppProcess()">Удалить приложение</button></div>`;
+    let delele = `<div class="setting__delete"><button onclick="deleteAppProcess()">Удалить все данные</button></div>`;
     let html = `<section class="app__settings"><h2>Сведения о приложении</h2><div class="app__wrapper">${usedPlace + usedBar + delele}</div></section><section class="app__settings_decr"><p>Настройки приложения и основная информация</p><p>Разработчик: <a href="https://anatolykulikov.ru" target="_blank">Анатолий Куликов</a></p><p>Репозиторий на <a href="https://github.com/anatolykulikov/tasker" target="_blank">Github</a></p></section>`;
     document.getElementById('appbody').innerHTML = html;
 }
@@ -184,9 +183,9 @@ function drawSettings() {
 // Полное удаление приложения
 function deleteAppProcess() {
     let dialog = document.createElement('div');
-        dialog.className = 'dialog dialog-delete';
+        dialog.className = 'modalwrap';
         dialog.id = 'deleteApp';
-        dialog.innerHTML = '<header>Удаление приложения</header><div class="dialog__body"><p>Вы собираетесь удалить данные приложения Tasker.</p><p>Все данные будут удалены, восстановить их будет невозможно!</p><button class="add" id="close-deleteApp">Отменить удаление</button><button class="delete" id="KillApp">Удалить</button></div>';
+        dialog.innerHTML = '<div class="dialog dialog-delete"><header>Удаление приложения</header><div class="dialog__body"><p>Вы собираетесь удалить данные приложения Tasker.</p><p>Все данные будут удалены, восстановить их будет невозможно!</p><button class="add" id="close-deleteApp">Отменить удаление</button><button class="delete" id="KillApp">Удалить</button></div></div>';
 
     document.body.appendChild(dialog);
     document.getElementById('close-deleteApp').addEventListener('click', closeDeleteApp);

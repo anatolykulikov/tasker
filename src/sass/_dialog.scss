@@ -8,12 +8,13 @@
     justify-content: center;
     width: 100%;
     height: 100vh;   
-    background: rgba(255,255,255,.5);
+    background: rgba(255,255,255,.87);
 }
 
 .dialog {
     display: block;
     width: 400px;
+    min-width: 350px;
     border: $border_std;
     box-shadow: $color_shadow 0 0 10px;
     background: $white;

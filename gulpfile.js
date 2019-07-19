@@ -11,8 +11,6 @@ const cleanCSS = require('gulp-clean-css');
 // JS
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
-// HTML
-const htmlmin = require('gulp-html-minifier');
 
 gulp.task('kill', function () {
   return del('app');
@@ -25,9 +23,6 @@ gulp.task('img', function () {
 
 gulp.task('html', function () {
   return gulp.src('src/*.html')
-    .pipe(htmlmin({
-      collapseWhitespace: true
-    }))
     .pipe(gulp.dest('app'));
 });
 
